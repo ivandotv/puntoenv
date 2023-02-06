@@ -52,7 +52,7 @@ jobs:
       - name: Generate Code Coverage
         # only when running in node v18
         if: matrix.node == 18
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
