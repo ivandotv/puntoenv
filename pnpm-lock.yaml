@@ -9,8 +9,6 @@ specifiers:
   '@types/node': ^18.11.18
   '@typescript-eslint/eslint-plugin': ^5.50.0
   '@typescript-eslint/parser': ^5.50.0
-  babel-plugin-dev-expression: ^0.2.3
-  babel-plugin-transform-define: ^2.1.0
   cross-env: ^7.0.3
   dotenv: ^16.0.3
   eslint: ^8.33.0
@@ -44,8 +42,6 @@ devDependencies:
   '@types/node': 18.11.18
   '@typescript-eslint/eslint-plugin': 5.50.0_go4drrxstycfikanvu45pi4vgq
   '@typescript-eslint/parser': 5.50.0_4vsywjlpuriuw3tl5oq6zy5a64
-  babel-plugin-dev-expression: 0.2.3_@babel+core@7.20.12
-  babel-plugin-transform-define: 2.1.0
   cross-env: 7.0.3
   eslint: 8.33.0
   eslint-config-prettier: 8.6.0_eslint@8.33.0
@@ -2569,14 +2565,6 @@ packages:
       - supports-color
     dev: true
 
-  /babel-plugin-dev-expression/0.2.3_@babel+core@7.20.12:
-    resolution: {integrity: sha512-rP5LK9QQTzCW61nVVzw88En1oK8t8gTsIeC6E61oelxNsU842yMjF0G1MxhvUpCkxCEIj7sE8/e5ieTheT//uw==}
-    peerDependencies:
-      '@babel/core': ^7.0.0
-    dependencies:
-      '@babel/core': 7.20.12
-    dev: true
-
   /babel-plugin-istanbul/6.1.1:
     resolution: {integrity: sha512-Y1IQok9821cC9onCx5otgFfRm7Lm+I+wwxOx738M/WLPZ9Q42m4IG5W0FNX8WLL2gYMZo3JkuXIH2DOpWM+qwA==}
     engines: {node: '>=8'}
@@ -2647,14 +2635,6 @@ packages:
 
   /babel-plugin-transform-async-to-promises/0.8.18:
     resolution: {integrity: sha512-WpOrF76nUHijnNn10eBGOHZmXQC8JYRME9rOLxStOga7Av2VO53ehVFvVNImMksVtQuL2/7ZNxEgxnx7oo/3Hw==}
-    dev: true
-
-  /babel-plugin-transform-define/2.1.0:
-    resolution: {integrity: sha512-bYuE8BNUnWuUs+QAmOaA+5+Bg+W7r6x97JX2Nb3xNlI91mLWH1OvIKcGqyJWPU5bWhEfJRbYi02CRarmiH6Tog==}
-    engines: {node: '>= 8.x.x'}
-    dependencies:
-      lodash: 4.17.21
-      traverse: 0.6.6
     dev: true
 
   /babel-plugin-transform-replace-expressions/0.2.0_@babel+core@7.20.12:
@@ -5071,10 +5051,6 @@ packages:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
     dev: true
 
-  /lodash/4.17.21:
-    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
-
   /log-update/4.0.0:
     resolution: {integrity: sha512-9fkkDevMefjg0mmzWFBW8YkFP91OrizzkW3diF7CpG+S2EYdy4+TVfGwz1zeF8x7hCx1ovSPTOE9Ngib74qqUg==}
     engines: {node: '>=10'}
@@ -6886,10 +6862,6 @@ packages:
     engines: {node: '>=8.0'}
     dependencies:
       is-number: 7.0.0
-    dev: true
-
-  /traverse/0.6.6:
-    resolution: {integrity: sha512-kdf4JKs8lbARxWdp7RKdNzoJBhGUcIalSYibuGyHJbmk40pOysQ0+QPvlkCOICOivDWU2IJo2rkrxyTK2AH4fw==}
     dev: true
 
   /trim-newlines/3.0.1:
