@@ -5,8 +5,9 @@ import path from 'node:path'
 
 /**
  * Setup environment variables from .env files based on NODE_ENV
- * @param rootPath - root path for the env files
+ * @param rootPath - root path for the .env files
  * @param debug - dotEnv debug flag
+ * @returns list of loaded files
  */
 export function setupEnv(rootPath: string, debug = false): string[] {
   const resolvedEnv = (process.env.NODE_ENV || '').toLowerCase()
