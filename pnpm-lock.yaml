@@ -11,6 +11,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.50.0
   cross-env: ^7.0.3
   dotenv: ^16.0.3
+  dotenv-expand: ^10.0.0
   eslint: ^8.33.0
   eslint-config-prettier: ^8.6.0
   eslint-plugin-jest: ^27.2.1
@@ -32,6 +33,7 @@ specifiers:
 
 dependencies:
   dotenv: 16.0.3
+  dotenv-expand: 10.0.0
 
 devDependencies:
   '@babel/core': 7.20.12
@@ -3264,6 +3266,11 @@ packages:
       domelementtype: 2.3.0
       domhandler: 4.3.1
     dev: true
+
+  /dotenv-expand/10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==}
+    engines: {node: '>=12'}
+    dev: false
 
   /dotenv/16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}

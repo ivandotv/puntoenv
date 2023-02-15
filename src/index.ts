@@ -1,10 +1,14 @@
 import dotEnv from 'dotenv'
 import fs from 'node:fs'
-// https://github.com/vercel/next.js/blob/canary/packages/next-env/index.ts
+import { expand } from 'dotenv-expand'
+import path from 'node:path'
 
-// https://nextjs.org/docs/basic-features/environment-variables#environment-variable-load-order
-
-export function initializeEnv(rootPath: string, debug = false): string[] {
+/**
+ * Setup environment variables from .env files based on NODE_ENV
+ * @param rootPath - root path for the env files
+ * @param debug - dotEnv debug flag
+ */
+export function setupEnv(rootPath: string, debug = false): string[] {
   const resolvedEnv = (process.env.NODE_ENV || '').toLowerCase()
   let files = [
     `.env.${resolvedEnv}.local`,
@@ -20,16 +24,21 @@ export function initializeEnv(rootPath: string, debug = false): string[] {
   const loaded = []
 
   for (const file of files) {
-    const path = `${rootPath}/${file}`
-    loaded.push(file)
-    if (fs.existsSync(path)) {
+    const fullPath = path.normalize(`${rootPath}/${file}`)
+
+    if (fs.existsSync(fullPath)) {
+      loaded.push(file)
+
       dotEnv.config({
-        path,
+        path: fullPath,
         override: false,
         debug
       })
     }
   }
+
+  // @ts-expect-error - process.env string index signature
+  expand({ ignoreProcessEnv: true, parsed: process.env })
 
   return loaded
 }
