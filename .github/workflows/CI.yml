@@ -49,13 +49,6 @@ jobs:
         env:
           CI: true
 
-      - name: Generate Code Coverage
-        # only when running in node v18
-        if: matrix.node == 18
-        uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-
       - name: 'Consume changesets'
         if: github.event_name == 'push' && github.repository == 'ivandotv/untilted' && matrix.node == 16 && github.ref == 'refs/heads/main'
         uses: changesets/action@v1
@@ -68,13 +61,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: 'Generate docs'
-        if: steps.changesets.outputs.published == 'true'
-        run: pnpm gen:docs
-
-      - name: Commit docs
-        if: steps.changesets.outputs.published == 'true'
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Generate docs'
