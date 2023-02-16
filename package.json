@@ -1,7 +1,7 @@
 {
   "name": "puntoenv",
   "version": "0.0.0",
-  "description": "",
+  "description": "Simple package that enables you to load .env files in to process.env and also do variable expansion in a predetermined order based on the NODE_ENV environment variable value.",
   "keywords": [
     "dot-env",
     "env",
@@ -9,7 +9,17 @@
     "environment",
     "env vars",
     "environment variables",
-    "next-env"
+    "next-env",
+    "process env",
+    "env config",
+    "env file",
+    "env loader",
+    "env parser",
+    "env reader",
+    "env vars",
+    "env variables",
+    "dotenv",
+    "dotenv-expand"
   ],
   "private": true,
   "author": "Ivan Vlatkovic",
