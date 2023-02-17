@@ -21,7 +21,7 @@
     "dotenv",
     "dotenv-expand"
   ],
-  "private": true,
+  "private": false,
   "author": "Ivan Vlatkovic",
   "license": "MIT",
   "type": "module",
