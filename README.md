@@ -30,6 +30,8 @@ import { setupEnv } from 'puntoenv'
 setupEnv('/path/to/your-dir/')
 ```
 
+Make sure you call the function as early as possible in your code.
+
 ## How it works.
 
 PuntoEnv will load `.env` files in a particular order.
@@ -47,7 +49,7 @@ I would also recommend adding all `.env*.local` files to the `.gitignore` file.
 
 ### Variable expansion
 
-After all the files have been processed, variable expansion will take place.
+After all the files have been processed, the variable expansion will take place.
 Before expansion:
 
 ```sh
