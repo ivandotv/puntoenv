@@ -1,5 +1,0 @@
----
-'puntoenv': major
----
-
-Publish package
