@@ -7,18 +7,24 @@ PuntoEnv is a simple package that enables you to load `.env` files in to `proces
 
 <!-- toc -->
 
-- [PuntoEnv](#puntoenv)
-  - [Motivation](#motivation)
-  - [Getting Started](#getting-started)
-  - [How it works.](#how-it-works)
-    - [Variable expansion](#variable-expansion)
-  - [License](#license)
+- [Motivation](#motivation)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [How it works.](#how-it-works)
+  * [Variable expansion](#variable-expansion)
+- [License](#license)
 
 <!-- tocstop -->
 
 ## Motivation
 
 I like how [Next.js loads `.env` files](https://nextjs.org/docs/basic-features/environment-variables#environment-variable-load-order) so I decided to make a similar utility module so I could use it everywhere else. Under the hood, it uses [`dotenv`](https://www.npmjs.com/package/dotenv) and [`dotenv-expand`](https://www.npmjs.com/package/dotenv-expand) packages.
+
+## Installation
+
+```sh
+npm i puntoenv
+```
 
 ## Getting Started
 
