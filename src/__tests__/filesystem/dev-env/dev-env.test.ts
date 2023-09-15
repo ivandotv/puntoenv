@@ -9,4 +9,15 @@ describe('Dev File', () => {
     expect(process.env.MY_ENV).toEqual('.env.development.local')
     expect(process.env.FROM_EXPAND).toEqual('my_expanded_value')
   })
+
+  describe('Custom ENV var', () => {
+    test('env dev test', () => {
+      process.env.NODE_CONTEXT = 'DEVELOPMENT'
+
+      setupEnv(__dirname, 'NODE_CONTEXT')
+
+      expect(process.env.MY_ENV).toEqual('.env.development.local')
+      expect(process.env.FROM_EXPAND).toEqual('my_expanded_value')
+    })
+  })
 })

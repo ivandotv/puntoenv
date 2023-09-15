@@ -9,8 +9,12 @@ import path from 'node:path'
  * @param debug - dotEnv debug flag
  * @returns list of loaded files
  */
-export function setupEnv(rootPath: string, debug = false): string[] {
-  const resolvedEnv = (process.env.NODE_ENV || '').toLowerCase()
+export function setupEnv(
+  rootPath: string,
+  envVar = 'NODE_ENV',
+  debug = false
+): string[] {
+  const resolvedEnv = (process.env[envVar] || '').toLowerCase()
   let files = [
     `.env.${resolvedEnv}.local`,
     `.env.local`,
