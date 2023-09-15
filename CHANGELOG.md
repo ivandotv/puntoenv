@@ -1,5 +1,16 @@
 # puntoenv
 
+## 2.0.0
+
+### Major Changes
+
+- 5d4a24f: make env var name configurable
+  change arguments order
+
+### Patch Changes
+
+- ef1047e: chore: update packages
+
 ## 1.0.2
 
 ### Patch Changes
