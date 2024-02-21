@@ -114,4 +114,10 @@ describe('Env', () => {
       debug: false
     })
   })
+
+  test('throw an error if env variable is not present', () => {
+    expect(() => setupEnv(__dirname, 'DOES_NOT_EXIST_IN_PROCESS_ENV')).toThrow(
+      'Environment variable DOES_NOT_EXIST_IN_PROCESS_ENV is not set'
+    )
+  })
 })

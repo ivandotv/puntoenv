@@ -15,6 +15,11 @@ export function setupEnv(
   debug = false
 ): string[] {
   const resolvedEnv = (process.env[envVar] || '').toLowerCase()
+
+  if (!resolvedEnv) {
+    throw new Error(`Environment variable ${envVar} is not set`)
+  }
+
   let files = [
     `.env.${resolvedEnv}.local`,
     `.env.local`,
