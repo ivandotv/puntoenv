@@ -1,5 +1,11 @@
 # puntoenv
 
+## 2.1.0
+
+### Minor Changes
+
+- f3e2dff: throw an error if env to look for is not set
+
 ## 2.0.1
 
 ### Patch Changes
