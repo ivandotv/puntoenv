@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['16', '18']
+        node: [ '21']
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
-          key: ${{ runner.os }}-node${{ matrix.node-version }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-node${{ matrix.node }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -37,7 +37,7 @@ jobs:
 
       - name: Lint source
         run: |
-          pnpm lint:ci
+          pnpm check:ci
 
       - name: Build package
         run: |
@@ -45,12 +45,12 @@ jobs:
 
       - name: Run tests
         run: |
-          pnpm test:ci
+          pnpm test
         env:
           CI: true
 
       - name: 'Consume changesets'
-        if: github.event_name == 'push' && github.repository == 'ivandotv/puntoenv' && matrix.node == 18 && github.ref == 'refs/heads/main'
+        if: github.event_name == 'push' && github.repository == 'ivandotv/puntoenv' && matrix.node == 21 && github.ref == 'refs/heads/main'
         uses: changesets/action@v1
         id: 'changesets'
         with:
