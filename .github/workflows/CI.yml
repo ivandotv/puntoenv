@@ -29,11 +29,22 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install dependencies
+      - name: Install pnpm
         uses: pnpm/action-setup@v3.0.0
         with:
-          version: 7.19.0
-          run_install: true
+          version: 8
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ matrix.node }}-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Lint source
         run: |
