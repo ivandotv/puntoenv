@@ -1,12 +1,12 @@
-import { setupEnv } from '../index'
-import dotEnv from 'dotenv'
-import fs from 'node:fs'
-import { describe, test, expect, vitest, beforeEach, afterEach } from 'vitest'
+import fs from "node:fs"
+import dotEnv from "dotenv"
+import { afterEach, beforeEach, describe, expect, test, vitest } from "vitest"
+import { setupEnv } from "../index"
 
-vitest.mock('node:fs')
-vitest.mock('dotenv')
+vitest.mock("node:fs")
+vitest.mock("dotenv")
 
-describe('Env', () => {
+describe("Env", () => {
   const env = process.env
 
   beforeEach(() => {
@@ -19,106 +19,106 @@ describe('Env', () => {
   })
 
   test('node_env="development"', () => {
-    process.env.NODE_ENV = 'DEVELOPMENT'
+    process.env.NODE_ENV = "DEVELOPMENT"
 
-    const path = '/path/to/project/'
+    const path = "/path/to/project/"
 
     fs.existsSync = vitest.fn().mockReturnValue(true)
 
     const loaded = setupEnv(path)
 
     expect(loaded).toEqual([
-      '.env.development.local',
-      '.env.local',
-      '.env.development',
-      '.env'
+      ".env.development.local",
+      ".env.local",
+      ".env.development",
+      ".env",
     ])
     expect(dotEnv.config).toHaveBeenCalledTimes(4)
     expect(dotEnv.config).toHaveBeenNthCalledWith(1, {
       path: `${path}.env.development.local`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(2, {
       path: `${path}.env.local`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(3, {
       path: `${path}.env.development`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(4, {
       path: `${path}.env`,
       override: false,
-      debug: false
+      debug: false,
     })
   })
 
-  test('node_env=production', () => {
-    process.env.NODE_ENV = 'PRODUCTION'
+  test("node_env=production", () => {
+    process.env.NODE_ENV = "PRODUCTION"
 
-    const path = '/path/to/project/'
+    const path = "/path/to/project/"
 
     fs.existsSync = vitest.fn().mockReturnValue(true)
 
     const loaded = setupEnv(path)
 
     expect(loaded).toEqual([
-      '.env.production.local',
-      '.env.local',
-      '.env.production',
-      '.env'
+      ".env.production.local",
+      ".env.local",
+      ".env.production",
+      ".env",
     ])
     expect(dotEnv.config).toHaveBeenCalledTimes(4)
     expect(dotEnv.config).toHaveBeenNthCalledWith(1, {
       path: `${path}.env.production.local`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(2, {
       path: `${path}.env.local`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(3, {
       path: `${path}.env.production`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(4, {
       path: `${path}.env`,
       override: false,
-      debug: false
+      debug: false,
     })
   })
 
   test('do not load ".local" files in test environment', () => {
-    process.env.NODE_ENV = 'TEST'
-    const path = '/path/to/project/'
+    process.env.NODE_ENV = "TEST"
+    const path = "/path/to/project/"
 
     fs.existsSync = vitest.fn().mockReturnValue(true)
 
     const loaded = setupEnv(path)
 
-    expect(loaded).toEqual(['.env.test', '.env'])
+    expect(loaded).toEqual([".env.test", ".env"])
     expect(dotEnv.config).toHaveBeenCalledTimes(2)
     expect(dotEnv.config).toHaveBeenNthCalledWith(1, {
       path: `${path}.env.test`,
       override: false,
-      debug: false
+      debug: false,
     })
     expect(dotEnv.config).toHaveBeenNthCalledWith(2, {
       path: `${path}.env`,
       override: false,
-      debug: false
+      debug: false,
     })
   })
 
-  test('throw an error if env variable is not present', () => {
-    expect(() => setupEnv(__dirname, 'DOES_NOT_EXIST_IN_PROCESS_ENV')).toThrow(
-      'Environment variable DOES_NOT_EXIST_IN_PROCESS_ENV is not set'
+  test("throw an error if env variable is not present", () => {
+    expect(() => setupEnv(__dirname, "DOES_NOT_EXIST_IN_PROCESS_ENV")).toThrow(
+      "Environment variable DOES_NOT_EXIST_IN_PROCESS_ENV is not set",
     )
   })
 })

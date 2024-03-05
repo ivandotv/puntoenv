@@ -1,26 +1,26 @@
-import { describe, test, expect } from 'vitest'
-import { setupEnv } from '../../../index'
+import { describe, expect, test } from "vitest"
+import { setupEnv } from "../../../index"
 
-describe('env: TEST', () => {
-  test('do not load .local files', () => {
-    process.env.NODE_ENV = 'TEST'
+describe("env: TEST", () => {
+  test("do not load .local files", () => {
+    process.env.NODE_ENV = "TEST"
 
     const loaded = setupEnv(__dirname)
 
-    expect(loaded).toEqual(['.env.test', '.env'])
-    expect(process.env.MY_ENV).toEqual('.env.test')
-    expect(process.env.FROM_EXPAND).toEqual('.env.test')
+    expect(loaded).toEqual([".env.test", ".env"])
+    expect(process.env.MY_ENV).toEqual(".env.test")
+    expect(process.env.FROM_EXPAND).toEqual(".env.test")
   })
 
-  describe('Custom ENV var', () => {
-    test('do not load .local files', () => {
-      process.env.NODE_CONTEXT = 'TEST'
+  describe("Custom ENV var", () => {
+    test("do not load .local files", () => {
+      process.env.NODE_CONTEXT = "TEST"
 
-      const loaded = setupEnv(__dirname, 'NODE_CONTEXT')
+      const loaded = setupEnv(__dirname, "NODE_CONTEXT")
 
-      expect(loaded).toEqual(['.env.test', '.env'])
-      expect(process.env.MY_ENV).toEqual('.env.test')
-      expect(process.env.FROM_EXPAND).toEqual('.env.test')
+      expect(loaded).toEqual([".env.test", ".env"])
+      expect(process.env.MY_ENV).toEqual(".env.test")
+      expect(process.env.FROM_EXPAND).toEqual(".env.test")
     })
   })
 })
