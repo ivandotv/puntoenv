@@ -1,5 +1,11 @@
 # puntoenv
 
+## 2.1.1
+
+### Patch Changes
+
+- 2b2502d: update to vitest and update CI
+
 ## 2.1.0
 
 ### Minor Changes
