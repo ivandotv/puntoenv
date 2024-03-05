@@ -1,15 +1,16 @@
-import { setupEnv } from 'index'
+import { setupEnv } from '../index'
 import dotEnv from 'dotenv'
 import fs from 'node:fs'
+import { describe, test, expect, vitest, beforeEach, afterEach } from 'vitest'
 
-jest.mock('node:fs')
-jest.mock('dotenv')
+vitest.mock('node:fs')
+vitest.mock('dotenv')
 
 describe('Env', () => {
   const env = process.env
 
   beforeEach(() => {
-    jest.resetAllMocks()
+    vitest.resetAllMocks()
     process.env = { ...env }
   })
 
@@ -22,7 +23,7 @@ describe('Env', () => {
 
     const path = '/path/to/project/'
 
-    fs.existsSync = jest.fn().mockReturnValue(true)
+    fs.existsSync = vitest.fn().mockReturnValue(true)
 
     const loaded = setupEnv(path)
 
@@ -60,7 +61,7 @@ describe('Env', () => {
 
     const path = '/path/to/project/'
 
-    fs.existsSync = jest.fn().mockReturnValue(true)
+    fs.existsSync = vitest.fn().mockReturnValue(true)
 
     const loaded = setupEnv(path)
 
@@ -97,7 +98,7 @@ describe('Env', () => {
     process.env.NODE_ENV = 'TEST'
     const path = '/path/to/project/'
 
-    fs.existsSync = jest.fn().mockReturnValue(true)
+    fs.existsSync = vitest.fn().mockReturnValue(true)
 
     const loaded = setupEnv(path)
 

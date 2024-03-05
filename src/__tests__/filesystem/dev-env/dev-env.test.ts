@@ -1,4 +1,5 @@
-import { setupEnv } from 'index'
+import { setupEnv } from '../../../index'
+import { describe, test, expect } from 'vitest'
 
 describe('Dev Files', () => {
   test('env dev test', () => {

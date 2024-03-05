@@ -1,4 +1,5 @@
-import { setupEnv } from 'index'
+import { describe, test, expect } from 'vitest'
+import { setupEnv } from '../../../index'
 
 describe('env: TEST', () => {
   test('do not load .local files', () => {
