@@ -45,15 +45,15 @@
     "src"
   ],
   "scripts": {
-    "test": "jest --verbose",
-    "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand --ci",
-    "check": "biome check ./src/",
-    "lint": "biome lint ./src/",
+    "test": "vitest run",
+    "format": "biome format ./src --apply",
+    "lint": "biome lint ./src",
+    "check": "biome check ./src --apply --no-errors-on-unmatched --files-ignore-unknown",
+    "check:ci": "biome check ./src --no-errors-on-unmatched --files-ignore-unknown",
     "build": "shx rm -rf ./dist && NODE_ENV=production microbundle --tsconfig ./tsconfig.json  --format modern,cjs  --output dist/index.js --target node && shx cp  ./dist/index.d.ts ./dist/index.d.cts",
     "gen:docs": "rm -rf ./docs/api && typedoc --options typedoc.cjs",
     "prepublishOnly": "pnpm build",
-    "prepare": "husky install",
+    "prepare": "lefthook install",
     "release": "pnpm run prepublishOnly && pnpm changeset publish"
   },
   "repository": {
@@ -68,8 +68,7 @@
     "@biomejs/biome": "1.5.3",
     "@changesets/cli": "^2.27.1",
     "@types/node": "^20.11.19",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
+    "lefthook": "^1.6.5",
     "microbundle": "^0.15.1",
     "shx": "^0.3.4",
     "typedoc": "^0.25.8",
