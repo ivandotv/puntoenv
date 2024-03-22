@@ -1,5 +1,5 @@
-import dotEnv from "dotenv"
 import fs from "node:fs"
+import dotEnv from "dotenv"
 import { beforeEach, describe, expect, test, vitest } from "vitest"
 import { setupEnv } from "../index"
 import { clearTestEnvVars } from "./utils"
