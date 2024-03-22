@@ -1,7 +1,10 @@
-import { describe, expect, test } from "vitest"
+import { beforeEach, describe, expect, test } from "vitest"
 import { setupEnv } from "../../../index"
+import { clearTestEnvVars } from "../../utils"
 
 describe("env: TEST", () => {
+  beforeEach(clearTestEnvVars)
+
   test("do not load .local files", () => {
     process.env.NODE_ENV = "TEST"
 

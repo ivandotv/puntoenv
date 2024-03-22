@@ -1,22 +1,14 @@
-import fs from "node:fs"
 import dotEnv from "dotenv"
-import { afterEach, beforeEach, describe, expect, test, vitest } from "vitest"
+import fs from "node:fs"
+import { beforeEach, describe, expect, test, vitest } from "vitest"
 import { setupEnv } from "../index"
+import { clearTestEnvVars } from "./utils"
 
 vitest.mock("node:fs")
 vitest.mock("dotenv")
 
 describe("Env", () => {
-  const env = process.env
-
-  beforeEach(() => {
-    vitest.resetAllMocks()
-    process.env = { ...env }
-  })
-
-  afterEach(() => {
-    process.env = env
-  })
+  beforeEach(clearTestEnvVars)
 
   test('node_env="development"', () => {
     process.env.NODE_ENV = "DEVELOPMENT"
