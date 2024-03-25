@@ -6,6 +6,7 @@
   "files": {
     "ignore": [
       "node_modules",
+      "package.json",
       "dist",
       ".vscode"
     ]
