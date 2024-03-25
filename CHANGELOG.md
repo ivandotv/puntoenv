@@ -1,5 +1,11 @@
 # puntoenv
 
+## 2.1.2
+
+### Patch Changes
+
+- d6c3ffe: update readme
+
 ## 2.1.1
 
 ### Patch Changes
