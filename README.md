@@ -48,6 +48,7 @@ Make sure you call the function as early as possible in your code.
 
 PuntoEnv will load `.env` files in a particular order.
 Environment variables are looked up in the following places, in order, stopping once the variable is found.
+Environment variables that already exist have the highest priority and will not be overwritten by .env files.
 
 ```sh
 const value = process.env.NODE_ENV // production
@@ -58,6 +59,8 @@ const value = process.env.NODE_ENV // production
 - .env.$(value) // .env.production
 - .env
 ```
+
+
 One exception to this rule is when the `NODE_ENV=test` in that case `*.local` files will not be loaded as you expect tests to produce the same results for everyone (but you can use `.env.test` file).
 
 I would also recommend adding all `.env*.local` files to the `.gitignore` file.
