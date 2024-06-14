@@ -36,7 +36,7 @@ import { setupEnv } from 'puntoenv'
 setupEnv('/path/to/your-dir/')
 ```
 
-Also note that `NODE_ENV` will be default environment variable that will be checked, but you can use any other variable.
+Also note that `NODE_ENV` will be the default environment variable that will be checked, but you can use any other variable.
 ```ts
 //use NODE_CONTEXT to determine which files to load
 setupEnv('/path/to/your-dir/','NODE_CONTEXT')
