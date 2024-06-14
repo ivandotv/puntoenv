@@ -19,7 +19,7 @@ describe("env: TEST", () => {
     test("do not load .local files", () => {
       process.env.NODE_CONTEXT = "TEST"
 
-      const loaded = setupEnv(__dirname, "NODE_CONTEXT")
+      const loaded = setupEnv(__dirname, { envVar: "NODE_CONTEXT" })
 
       expect(loaded).toEqual([".env.test", ".env"])
       expect(process.env.MY_ENV).toEqual(".env.test")

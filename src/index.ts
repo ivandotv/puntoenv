@@ -11,8 +11,11 @@ import { expand } from "dotenv-expand"
  */
 export function setupEnv(
   rootPath: string,
-  envVar = "NODE_ENV",
-  debug = false,
+  {
+    envVar = "NODE_ENV",
+    debug = false,
+    logLoadedFiles = false,
+  }: { envVar?: string; debug?: boolean; logLoadedFiles?: boolean } = {},
 ): string[] {
   const resolvedEnv = (process.env[envVar] || "").toLowerCase()
 
@@ -32,11 +35,17 @@ export function setupEnv(
   }
 
   const loaded = []
-
+  if (logLoadedFiles) {
+    console.log("loading env files:")
+  }
   for (const file of files) {
     const fullPath = path.normalize(`${rootPath}/${file}`)
 
     if (fs.existsSync(fullPath)) {
+      if (logLoadedFiles) {
+        console.log(`   - ${file}`)
+      }
+
       loaded.push(file)
 
       dotEnv.config({

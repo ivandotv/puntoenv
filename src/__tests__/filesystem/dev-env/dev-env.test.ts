@@ -28,7 +28,7 @@ describe("Dev Files", () => {
     test("env dev test", () => {
       process.env.NODE_CONTEXT = "DEVELOPMENT"
 
-      setupEnv(__dirname, "NODE_CONTEXT")
+      setupEnv(__dirname, { envVar: "NODE_CONTEXT" })
 
       expect(process.env.MY_ENV).toEqual(".env.development.local")
       expect(process.env.FROM_EXPAND).toEqual(".env.development.local")

@@ -55,7 +55,7 @@ describe("Env", () => {
 
     fs.existsSync = vitest.fn().mockReturnValue(true)
 
-    const loaded = setupEnv(path)
+    const loaded = setupEnv(path, { logLoadedFiles: true })
 
     expect(loaded).toEqual([
       ".env.production.local",
@@ -109,8 +109,8 @@ describe("Env", () => {
   })
 
   test("throw an error if env variable is not present", () => {
-    expect(() => setupEnv(__dirname, "DOES_NOT_EXIST_IN_PROCESS_ENV")).toThrow(
-      "Environment variable DOES_NOT_EXIST_IN_PROCESS_ENV is not set",
-    )
+    expect(() =>
+      setupEnv(__dirname, { envVar: "DOES_NOT_EXIST_IN_PROCESS_ENV" }),
+    ).toThrow("Environment variable DOES_NOT_EXIST_IN_PROCESS_ENV is not set")
   })
 })
