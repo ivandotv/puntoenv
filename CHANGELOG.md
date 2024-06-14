@@ -1,5 +1,12 @@
 # puntoenv
 
+## 3.0.0
+
+### Major Changes
+
+- c510c92: - change function signature to accept options object.
+  - add options to log loaded files paths
+
 ## 2.1.2
 
 ### Patch Changes
