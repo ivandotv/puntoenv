@@ -55,7 +55,7 @@ describe("Env", () => {
 
     fs.existsSync = vitest.fn().mockReturnValue(true)
 
-    const loaded = setupEnv(path, { logLoadedFiles: true })
+    const loaded = setupEnv(path)
 
     expect(loaded).toEqual([
       ".env.production.local",

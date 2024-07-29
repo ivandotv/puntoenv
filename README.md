@@ -10,6 +10,8 @@ PuntoEnv is a simple package that enables you to load `.env` files in to `proces
 - [Motivation](#motivation)
 - [Installation](#installation)
 - [Getting Started](#getting-started)
+  * [Custom ENV variable](#custom-env-variable)
+  * [Loaded file callback](#loaded-file-callback)
 - [How it works.](#how-it-works)
   * [Variable expansion](#variable-expansion)
 - [License](#license)
@@ -35,6 +37,7 @@ import { setupEnv } from 'puntoenv'
 
 setupEnv('/path/to/your-dir/')
 ```
+### Custom ENV variable
 
 Also note that `NODE_ENV` will be the default environment variable that will be checked, but you can use any other variable.
 ```ts
@@ -44,6 +47,21 @@ setupEnv('/path/to/your-dir/','NODE_CONTEXT')
 
 Make sure you call the function as early as possible in your code.
 
+### Loaded file callback
+
+You can pass in optional `onLoad` callback (to the options object), that will fire for every loaded file. Inside the callback there is info about the `path`, `filename` and the result of the
+`dotEnv.config` method call.
+
+```ts
+setupEnv(__dirname, {
+  onLoad: (data) => {
+    console.log('path ',data.path)
+    console.log('filename ',data.filename)
+    console.log('result ',data.result) // {error?: Error , parsed:Record<string,string>}
+  },
+})
+
+```
 ## How it works.
 
 PuntoEnv will load `.env` files in a particular order.

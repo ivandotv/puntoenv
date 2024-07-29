@@ -14,8 +14,19 @@ export function setupEnv(
   {
     envVar = "NODE_ENV",
     debug = false,
-    logLoadedFiles = false,
-  }: { envVar?: string; debug?: boolean; logLoadedFiles?: boolean } = {},
+    onLoad,
+  }: {
+    envVar?: string
+    debug?: boolean
+    onLoad?: (data: {
+      path: string
+      filename: string
+      result: {
+        error?: Error
+        parsed?: Record<string, string>
+      }
+    }) => void
+  } = {},
 ): string[] {
   const resolvedEnv = (process.env[envVar] || "").toLowerCase()
 
@@ -35,24 +46,21 @@ export function setupEnv(
   }
 
   const loaded = []
-  if (logLoadedFiles) {
-    console.log("loading env files:")
-  }
   for (const file of files) {
     const fullPath = path.normalize(`${rootPath}/${file}`)
 
     if (fs.existsSync(fullPath)) {
-      if (logLoadedFiles) {
-        console.log(`   - ${file}`)
-      }
-
       loaded.push(file)
 
-      dotEnv.config({
+      const result = dotEnv.config({
         path: fullPath,
         override: false,
         debug,
       })
+
+      if (onLoad) {
+        onLoad({ path: rootPath, filename: file, result })
+      }
     }
   }
 
