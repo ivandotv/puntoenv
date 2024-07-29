@@ -1,5 +1,11 @@
 # puntoenv
 
+## 4.0.0
+
+### Major Changes
+
+- 10e2b51: remove `logLoadedFiles` and introduce an optional callback when the file is loaded with the info about the loaded file and data.
+
 ## 3.0.0
 
 ### Major Changes
