@@ -65,7 +65,7 @@
   },
   "homepage": "https://github.com/ivandotv/puntoenv#readme",
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "1.9.1",
     "@changesets/cli": "^2.27.5",
     "@types/node": "^20.14.2",
     "lefthook": "^1.6.16",
