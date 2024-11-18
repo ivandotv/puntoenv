@@ -12,8 +12,8 @@ importers:
         specifier: ^16.4.5
         version: 16.4.5
       dotenv-expand:
-        specifier: ^11.0.6
-        version: 11.0.6
+        specifier: ^12.0.0
+        version: 12.0.0
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -1546,8 +1546,8 @@ packages:
   domutils@2.8.0:
     resolution: {integrity: sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A==}
 
-  dotenv-expand@11.0.6:
-    resolution: {integrity: sha512-8NHi73otpWsZGBSZwwknTXS5pqMOrk9+Ssrna8xCaxkzEpU9OTf9R5ArQGVw03//Zmk9MOwLPng9WwndvpAJ5g==}
+  dotenv-expand@12.0.0:
+    resolution: {integrity: sha512-4dtjvwQLxAzb8omUPEsHGmcxtpXKU9yDfXKk3qkEECo1U1Q0/VBwQwIvO+LdYQec3yWjSLwzzgLDImftJg/m2Q==}
     engines: {node: '>=12'}
 
   dotenv@16.4.5:
@@ -5052,7 +5052,7 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 4.3.1
 
-  dotenv-expand@11.0.6:
+  dotenv-expand@12.0.0:
     dependencies:
       dotenv: 16.4.5
 
