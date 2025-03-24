@@ -70,7 +70,7 @@
     "@types/node": "^20.14.2",
     "lefthook": "^1.6.16",
     "microbundle": "^0.15.1",
-    "shx": "^0.3.4",
+    "shx": "^0.4.0",
     "typedoc": "^0.28.0",
     "typedoc-plugin-markdown": "^4.0.3",
     "typescript": "^5.4.5",
