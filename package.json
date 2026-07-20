@@ -74,7 +74,7 @@
     "typedoc": "^0.28.0",
     "typedoc-plugin-markdown": "^4.0.3",
     "typescript": "^5.4.5",
-    "vitest": "^1.6.0"
+    "vitest": "^3.0.0"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
