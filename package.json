@@ -77,7 +77,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.0.0",
     "dotenv-expand": "^11.0.6"
   }
 }
